@@ -1,0 +1,2136 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: '혜민';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '웰컴';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.wrap {
+    overflow-x: hidden;
+}
+
+/* ----------------------------------- header 영역----------------------------- */
+
+/* pc 버전 */
+@media (min-width:801px) {
+    header {
+        position: absolute;
+        width: 1200px;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 120;
+    }
+
+    .logo {
+        padding-top: 10px;
+    }
+
+    .gnb {
+        width: 50%;
+        padding-top: 30px;
+    }
+
+    .dep1 {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .dep1>li {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        text-align: center;
+        position: relative;
+    }
+
+    .dep1>li>a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        font-size: 20px;
+        font-family: '웰컴';
+        color: #817474;
+        position: relative;
+    }
+
+    .dep1>li>a:hover {
+        color: #FF6464;
+    }
+
+    .dep1>li>a::before {
+        content: "";
+        background-color: #FF6464;
+        width: 0;
+        height: 5px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: .5s;
+    }
+
+    .dep1>li>a:hover::before {
+        width: 100%;
+    }
+
+
+    .sub {
+        padding-top: 30px;
+        display: flex;
+    }
+
+    .sub a {
+        display: block;
+        padding: 10px;
+        position: relative;
+        color: lightslategrey;
+        font-size: 14px;
+        font-family: '웰컴';
+    }
+
+    .sub a:nth-of-type(1)::after {
+        content: "|";
+        position: absolute;
+        right: -2px;
+    }
+
+    .dep2 {
+        position: absolute;
+        width: 100%;
+        top: 44px;
+        left: 0;
+        display: none !important;
+    }
+
+    .dep2 li a {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        font-family: '웰컴';
+    }
+
+    .dep2 li a:hover {
+        color: white;
+        background-color: #FF6464;
+        border-radius: 10px;
+    }
+
+    .dep1>li:hover .dep2 {
+        display: block !important;
+    }
+
+    .ham {
+        display: none;
+    }
+}
+
+@media (max-width:1150px) {
+    header {
+        width: 800px;
+    }
+}
+
+/* 모바일 버전 */
+@media (max-width:800px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    header {
+        position: absolute;
+        width: 100%;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 120;
+    }
+
+    .logo {
+        padding-top: 10px;
+        padding-left: 20px;
+        width: 20%;
+    }
+
+    .logo img {
+        width: 100%;
+    }
+
+    .gnb {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: -300px;
+        width: 35%;
+        height: 100vh;
+        background-color: lightgoldenrodyellow;
+        transition: .5s;
+        z-index: 10;
+    }
+
+    .gnb.on {
+        display: block;
+        right: 0;
+    }
+
+    .dep1 {
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 10%;
+        right: 0;
+    }
+
+    .dep1>li {
+        width: 100%;
+        height: 100%;
+        display: block;
+        text-align: center;
+        position: relative;
+    }
+
+    .dep1>li>a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        font-size: 20px;
+        font-family: '웰컴';
+        color: #817474;
+        position: relative;
+    }
+
+    .dep1>li>a:hover {
+        color: #FF6464;
+    }
+
+    .dep1>li>a::before {
+        content: "";
+        background-color: #FF6464;
+        width: 0;
+        height: 5px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: .5s;
+    }
+
+    .dep1>li>a:hover::before {
+        width: 100%;
+    }
+
+
+    .sub {
+        padding-top: 30px;
+        display: none;
+    }
+
+    .sub a {
+        display: block;
+        padding: 10px;
+        position: relative;
+        color: lightslategrey;
+        font-size: 14px;
+        font-family: '웰컴';
+    }
+
+    .sub a:nth-of-type(1)::after {
+        content: "|";
+        position: absolute;
+        right: -2px;
+    }
+
+    .dep2 {
+        width: 100%;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .dep2 li a {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        font-family: '웰컴';
+    }
+
+    .dep2 li a:hover {
+        color: white;
+        background-color: #FF6464;
+        border-radius: 10px;
+    }
+
+    .ham {
+        font-size: 1.5em;
+        color: #FF6464;
+        position: fixed;
+        z-index: 100;
+        top: 35%;
+        right: 10px;
+    }
+}
+
+/* ------------------------------------header 끝 ------------------------------ */
+
+
+
+/* ------------------------------------- sec1 영역 ----------------------------- */
+
+/* pc 버전 */
+@media (min-width:801px) {
+    .sec1 {
+        width: 100%;
+        height: 100vh;
+        background-image: url(./img/sec1\ 배경이미지.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+    }
+
+    .sec1::after {
+        content: '';
+        background-image: url(./img/sec1\ 배경.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 75%;
+        z-index: -10;
+    }
+
+    .sec1_in1 {
+        position: absolute;
+        width: 45%;
+        left: 8%;
+        bottom: 0;
+    }
+
+    .sec1_in1 img {
+        width: 100%;
+    }
+
+    .sec1_in1::after {
+        content: '';
+        background-image: url(./img/sec1\ 메인이미지\ 장식.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        width: 110%;
+        height: 100%;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    .sec1_in2 {
+        position: absolute;
+        top: 50%;
+        right: 28%;
+        text-align: center;
+    }
+
+    .sec1_in2::after {
+        content: '';
+        background-image: url(./img/sec1\ 말버리풍선.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        width: 180%;
+        height: 260%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+
+    .sec1_in2 p {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+
+
+    .sec1_in2 p span {
+        padding-top: 30px;
+        font-family: '웰컴';
+        font-size: 2.5em;
+        color: #585858;
+    }
+
+    .sec1_in2 p span:nth-of-type(2) {
+        font-size: 3em;
+        position: relative;
+    }
+
+    .sec1_in2 p span:nth-of-type(2)::after {
+        content: '';
+        background-image: url(./img/왕관.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        top: -8px;
+        right: -15px;
+    }
+
+    .sec1_in3 {
+        position: absolute;
+        bottom: 15%;
+        right: 25%;
+    }
+
+    .sec1_in3_in {
+        text-align: right;
+        position: relative;
+        width: 200px;
+        height: 100px;
+    }
+
+    .sec1_in3_in>* {
+        position: absolute;
+        font-family: '혜민';
+        color: lightslategray;
+    }
+
+    .sec1_in3_1 {
+        top: -20%;
+        right: -20%;
+    }
+
+    .sec1_in3_2 {
+        top: 38%;
+        left: 40%;
+    }
+
+    .sec1_in3_3 {
+        top: 100%;
+        left: -10%;
+    }
+
+}
+
+@media (max-width:1150px) {
+    .sec1 {
+        /* width: 100%; */
+        max-width: 1150px;
+        height: 80vh;
+        position: relative;
+    }
+
+    .sec1::after {
+        content: '';
+        background-image: url(./img/sec1\ 배경.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 75%;
+        z-index: -10;
+    }
+
+    .sec1_in1 {
+        position: absolute;
+        width: 60%;
+        left: 0%;
+        bottom: 0;
+    }
+
+    .sec1_in1 img {
+        width: 100%;
+    }
+
+    .sec1_in1::after {
+        content: '';
+        background-image: url(./img/sec1\ 메인이미지\ 장식.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        width: 110%;
+        height: 100%;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    .sec1_in2 {
+        position: absolute;
+        top: 40%;
+        right: 18%;
+        text-align: center;
+    }
+
+    .sec1_in2::after {
+        content: '';
+        background-image: url(./img/sec1\ 말버리풍선.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        width: 180%;
+        height: 200%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+
+    .sec1_in2 p {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+
+
+    .sec1_in2 p span {
+        padding-top: 30px;
+        font-family: '웰컴';
+        font-size: 1.5em;
+        color: #585858;
+    }
+
+    .sec1_in2 p span:nth-of-type(2) {
+        font-size: 3em;
+        position: relative;
+    }
+
+    .sec1_in2 p span:nth-of-type(2)::after {
+        content: '';
+        background-image: url(./img/왕관.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        top: -8px;
+        right: -15px;
+    }
+
+    .sec1_in3 {
+        position: absolute;
+        bottom: 15%;
+        right: 15%;
+    }
+
+    .sec1_in3_in {
+        text-align: right;
+        position: relative;
+        width: 200px;
+        height: 100px;
+    }
+
+    .sec1_in3_in>* {
+        position: absolute;
+        font-family: '혜민';
+        color: lightslategray;
+    }
+
+    .sec1_in3_1 {
+        top: -20%;
+        right: -20%;
+    }
+
+    .sec1_in3_2 {
+        top: 38%;
+        left: 40%;
+    }
+
+    .sec1_in3_3 {
+        top: 100%;
+        left: -10%;
+    }
+
+}
+
+/* 모바일 버전 */
+@media (max-width:800px) {
+    .sec1 {
+        width: 100%;
+        height: 100vh;
+        background-color: #F1FFEE;
+        position: relative;
+        z-index: -10;
+    }
+
+    .sec1::after {
+        content: '';
+        background-image: url(./img/모바일배경.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -10;
+        opacity: 0.5;
+    }
+
+    .sec1_in1 {
+        position: absolute;
+        width: 80%;
+        left: 0;
+        bottom: 0;
+    }
+
+    .sec1_in1 img {
+        width: 100%;
+    }
+
+    .sec1_in1::after {
+        content: '';
+        background-image: url(./img/sec1\ 메인이미지\ 장식.png);
+        background-repeat: no-repeat;
+        background-size: 90% 90%;
+        position: absolute;
+        width: 110%;
+        height: 100%;
+        bottom: 0;
+        left: 50%;
+        z-index: -1;
+    }
+
+    .sec1_in2 {
+        position: absolute;
+        top: 25%;
+        right: 45%;
+        text-align: center;
+    }
+
+    .sec1_in2::after {
+        content: '';
+        background-image: url(./img/sec1\ 말버리풍선.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        width: 180%;
+        height: 250%;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+
+    .sec1_in2 p {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+
+
+    .sec1_in2 p span {
+        padding-top: 20px;
+        font-family: '웰컴';
+        font-size: 1.3em;
+        color: #585858;
+    }
+
+    .sec1_in2 p span:nth-of-type(2) {
+        font-size: 1.7em;
+        position: relative;
+    }
+
+    .sec1_in2 p span:nth-of-type(2)::after {
+        content: '';
+        background-image: url(./img/왕관.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        top: -8px;
+        right: -15px;
+    }
+
+    .sec1_in3 {
+        position: absolute;
+        bottom: 50%;
+        right: 18%;
+    }
+
+    .sec1_in3_in {
+        text-align: right;
+        position: relative;
+        width: 200px;
+        height: 100px;
+    }
+
+    .sec1_in3_in>* {
+        position: absolute;
+        font-family: '혜민';
+        color: lightslategray;
+    }
+
+    .sec1_in3_1 {
+        top: -20%;
+        right: -20%;
+    }
+
+    .sec1_in3_2 {
+        top: 38%;
+        left: 40%;
+    }
+
+    .sec1_in3_3 {
+        top: 100%;
+        left: -10%;
+    }
+}
+
+/* ------------------------------------- sec1 끝 -------------------------------- */
+
+/*--------------------------------------- sec2 영역 -------------------------------*/
+
+@media (min-width:801px) {
+    .sec2 {
+        width: 100%;
+        height: 100vh;
+        background-image: url(./img/sec2\ 배경.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .sec2_inner {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .sec2_title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 130px;
+    }
+
+    .p1 {
+        font-family: '웰컴';
+        font-size: 2.5em;
+        padding-bottom: 20px;
+        position: relative;
+        color: #686868;
+    }
+
+    .p1::after {
+        content: '';
+        background-image: url(./img/왕관.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        top: -50%;
+        left: 36%;
+        width: 50%;
+        height: 50%;
+    }
+
+    .p1::before {
+        content: '';
+        background-image: url(./img/타이틀\ 장식.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: -80%;
+        left: 0;
+    }
+
+    .p2 {
+        font-family: '혜민';
+        font-size: 0.75em;
+        padding: 10px 0;
+        position: relative;
+        color: #686868;
+    }
+
+    .menu_list {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: calc(100vh - 500px);
+    }
+
+    .menu p {
+        font-family: '웰컴';
+        font-size: 1.5em;
+        color: #686868;
+    }
+
+    .menu span {
+        font-family: '혜민';
+        font-size: 0.75em;
+        padding: 5px 0;
+    }
+
+    .menu a {
+        font-family: '혜민';
+        font-size: 1em;
+        color: #FF6464;
+        padding: 10px 20px;
+        border: 1px solid #FF6464;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+    .menu a:hover {
+        background-color: #FF6464;
+        color: white;
+    }
+
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding-top: 100px;
+    }
+
+    .menu img {
+        width: 100%;
+    }
+
+    .menu div:nth-of-type(1) {
+        width: 200px;
+        position: relative;
+    }
+
+    .menu div:nth-of-type(1)::after {
+        content: '';
+        background-image: url(./img/sec2메뉴\ 배경.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    .menu:hover div:nth-of-type(1) {
+        animation: ani1 alternate infinite linear .5s !important;
+    }
+
+    @keyframes ani1 {
+        0% {
+            bottom: 0;
+        }
+
+        100% {
+            bottom: 10px;
+        }
+    }
+
+    .mu2 div:nth-of-type(1)::after {
+        content: '';
+        background-image: url(./img/sec2메뉴\ 배경.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: -15px;
+        left: 0;
+        z-index: -1;
+    }
+
+    .menu div:nth-of-type(2) {
+        padding: 20px 0 10px 0;
+    }
+
+    .menu div:nth-of-type(3) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .menu div:nth-of-type(4) {
+        padding: 20px 0;
+    }
+
+    .mu2 {
+        padding-top: 75px;
+    }
+
+    .mu4 {
+        padding-top: 110px;
+    }
+}
+
+@media (max-width:1150px) {
+    .sec2 {
+        width: 100%;
+        height: 90vh;
+    }
+
+    .sec2_inner {
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .sec2_title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 110px;
+    }
+
+    .menu div:nth-of-type(1) {
+        width: 150px;
+        position: relative;
+    }
+
+}
+
+@media (max-width:800px) {
+    .sec2 {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+    }
+
+    .sec2::after {
+        content: '';
+        background-image: url(./img/sec2\ 모바일\ 배경.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -100;
+        opacity: 0.3;
+    }
+
+    .sec2_inner { 
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .sec2_title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 80px;
+    }
+
+    .p1 {
+        font-family: '웰컴';
+        font-size: 2em;
+        padding-bottom: 20px;
+        position: relative;
+        color: #686868;
+    }
+
+    .p1::after {
+        content: '';
+        background-image: url(./img/왕관.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        top: -45%;
+        left: 40%;
+        width: 40%;
+        height: 40%;
+    }
+
+    .p1::before {
+        content: '';
+        background-image: url(./img/타이틀\ 장식.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: -80%;
+        left: 0;
+    }
+
+    .p2 {
+        font-family: '혜민';
+        font-size: 0.75em;
+        padding: 10px 0;
+        position: relative;
+        color: #686868;
+    }
+
+    .menu_list {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: calc(100vh - 500px);
+        position: relative;
+    }
+
+    .menu p {
+        font-family: '웰컴';
+        font-size: 0.95em;
+        color: #686868;
+    }
+
+    .menu span {
+        font-family: '혜민';
+        font-size: 0.5em;
+    }
+
+    .menu a {
+        font-family: '혜민';
+        font-size: 0.5em;
+        color: #FF6464;
+        padding: 10px 20px;
+        border: 1px solid #FF6464;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+    .menu a:hover {
+        background-color: #FF6464;
+        color: white;
+    }
+
+
+    .menu {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .menu img {
+        width: 60%;
+    }
+
+    
+    .menu div:nth-of-type(1) {
+        position: relative;
+        animation: ani1 alternate infinite linear .5s;
+    }
+
+    .menu div:nth-of-type(1)::after {
+        content: '';
+        background-image: url(./img/sec2메뉴\ 배경.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        left: 20%;
+        z-index: -1;
+    }
+
+    @keyframes ani1 {
+        0% {
+            bottom: 0;
+        }
+
+        100% {
+            bottom: 10px;
+        }
+    }
+
+    .mu2 img {
+        width: 70%;
+    }
+
+    .mu2 div:nth-of-type(1)::after {
+        content: '';
+        background-image: url(./img/sec2메뉴\ 배경.png);
+        background-repeat: no-repeat;
+        background-size: 60%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: -20px;
+        left: 20%;
+        z-index: -1;
+    }
+
+    .menu div:nth-of-type(2) {
+        padding: 20px 0 10px 0;
+    }
+
+    .menu div:nth-of-type(3) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .menu div:nth-of-type(4) {
+        padding: 20px 0;
+    }
+
+    .mu1 {
+        top: 40%;
+        left: 20%;
+    }
+
+    .mu2 {
+        top: 34 %;
+        right: 20%;
+    }
+    .mu2:nth-of-type(2) {
+        text-align: center;
+    }
+
+    .mu2 p {
+        display: block;
+        width: 150px;
+    }
+
+    .mu3 {
+        bottom: -90%;
+        left: 20%;
+
+    }
+
+    .mu4 {
+        padding-top: 110px;
+        bottom: -90%;
+        right: 20%;
+    }
+}
+
+/* --------------------------------------- sec2 끝 -------------------------------- */
+
+/* ----------------------------------------- sec3 영역 -----------------------------  */
+/* pc 버전 */
+@media (min-width:801px) {
+    .sec3 {
+        width: 100%;
+        height: 100vh;
+        background-image: url(./img/sec3\ 배경.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+    }
+
+    .sec3::after {
+        content: '';
+        width: 50%;
+        height: 100%;
+        background-color: #FF6464;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    .sec3_inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sec3_center {
+        width: 15%;
+
+    }
+
+    .sec3_center img {
+        width: 100%;
+    }
+
+    .R_list li div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .R_list li p {
+        text-align: center;
+        color: white;
+    }
+
+    .R_list li p:nth-of-type(1) {
+        padding-bottom: 20px;
+        font-family: '웰컴';
+        font-size: 1.5em;
+    }
+
+    .R_list li p:nth-of-type(2) {
+        font-family: '혜민';
+        font-size: 1em;
+    }
+
+
+    .R_list li {
+        position: absolute;
+    }
+
+    .R1 {
+        top: 14%;
+        left: 17%;
+    }
+
+    .R2 {
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+    }
+
+    .R3 {
+        bottom: 15%;
+        left: 25%;
+    }
+
+
+    .L_list li {
+
+        position: absolute;
+    }
+
+    .L_list li div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .L_list li p {
+        padding-left: 40px;
+        font-family: '웰컴';
+        color: #8E8E8E;
+    }
+
+    .L1 {
+        top: 10%;
+        right: 20%;
+    }
+
+    .L1::after {
+        content: '';
+        position: absolute;
+        top: 150%;
+        right: 110%;
+        width: 150px;
+        height: 5px;
+        background-color: #8E8E8E;
+        transform: rotate(-28deg);
+    }
+
+    .L2 {
+        top: 25%;
+        right: 8%;
+        transform: translateY(50%);
+    }
+
+    .L2::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        right: 110%;
+        width: 250px;
+        height: 5px;
+        background-color: #8E8E8E;
+        transform: rotate(-10deg);
+    }
+
+    .L3 {
+        bottom: 25%;
+        right: 8%;
+        transform: translateY(-50%);
+    }
+
+    .L3::after {
+        content: '';
+        position: absolute;
+        top: 30%;
+        right: 115%;
+        width: 250px;
+        height: 5px;
+        background-color: #8E8E8E;
+        transform: rotate(10deg);
+    }
+
+    .L4 {
+        bottom: 10%;
+        right: 20%;
+    }
+
+    .L4::after {
+        content: '';
+        position: absolute;
+        top: -20%;
+        right: 110%;
+        width: 150px;
+        height: 5px;
+        background-color: #8E8E8E;
+        transform: rotate(35deg);
+    }
+}
+
+@media (max-width:1350px) {
+    .sec3 {
+        height: 90vh;
+    }
+
+    .R_list li div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .R_list li p {
+        text-align: center;
+        color: white;
+    }
+
+    .R_list li p:nth-of-type(1) {
+        padding-bottom: 20px;
+        font-family: '웰컴';
+        font-size: 1em;
+    }
+
+    .R_list li p:nth-of-type(2) {
+        font-family: '혜민';
+        font-size: 0.85em;
+    }
+
+
+    .R_list li {
+        position: absolute;
+    }
+
+    .R1 {
+        top: 14%;
+        left: 10%;
+    }
+
+    .R2 {
+        top: 50%;
+        left: 5%;
+        transform: translateY(-50%);
+    }
+
+    .R3 {
+        bottom: 15%;
+        left: 25%;
+    }
+
+    .L_list li div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .L_list li {
+
+        position: absolute;
+    }
+
+    .L_list li div img {
+        padding-bottom: 20px;
+    }
+
+    .L_list li p {
+        padding-left: 40px;
+        font-family: '웰컴';
+        color: #8E8E8E;
+    }
+
+    .L1 {
+        top: 10%;
+        right: 20%;
+    }
+
+    .L1::after {
+        content: '';
+        position: absolute;
+        top: 120%;
+        right: 90%;
+        width: 50px;
+        height: 5px;
+        background-color: #8E8E8E;
+        transform: rotate(-28deg);
+    }
+
+    .L2 {
+        top: 25%;
+        right: 8%;
+        transform: translateY(50%);
+    }
+
+    .L2::after {
+        content: '';
+        position: absolute;
+        top: 70%;
+        right: 90%;
+        width: 80px;
+        height: 5px;
+        background-color: #8E8E8E;
+        transform: rotate(-10deg);
+    }
+
+    .L3 {
+        bottom: 20%;
+        right: 8%;
+        transform: translateY(-50%);
+    }
+
+    .L3::after {
+        content: '';
+        position: absolute;
+        top: 30%;
+        right: 90%;
+        width: 80px;
+        height: 5px;
+        background-color: #8E8E8E;
+        transform: rotate(10deg);
+    }
+
+    .L4 {
+        bottom: 10%;
+        right: 20%;
+    }
+
+    .L4::after {
+        content: '';
+        position: absolute;
+        top: -20%;
+        right: 70%;
+        width: 80px;
+        height: 5px;
+        background-color: #8E8E8E;
+        transform: rotate(40deg);
+    }
+}
+
+/* 모바일영역 */
+@media (max-width:800px) {
+    .sec3 {
+        width: 100%;
+        height: 80vh;
+        position: relative;
+    }
+
+    .sec3::after {
+        content: '';
+        width: 50%;
+        height: 100%;
+        background-color: #FF6464;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    .sec3_inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sec3_center {
+        width: 15%;
+
+    }
+
+    .sec3_center img {
+        width: 100%;
+    }
+
+    .R_list li {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .R_list li p {
+        text-align: center;
+        color: white;
+    }
+
+    .R_list li p:nth-of-type(2) {
+        display: none;
+    }
+
+    .R_list li p:nth-of-type(1) {
+        padding-bottom: 20px;
+        font-family: '웰컴';
+        font-size: 0.75em;
+    }
+
+    .R_list li p:nth-of-type(2) {
+        font-family: '혜민';
+        font-size: 1em;
+    }
+
+
+    .R_list li {
+        position: absolute;
+    }
+
+    .R1 {
+        top: 30%;
+        left: 10%;
+    }
+
+    .R2 {
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+    }
+
+    .R3 {
+        bottom: 30%;
+        left: 10%;
+    }
+
+
+    .L_list li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+    }
+
+    .L_list li img {
+        width: 20%;
+    }
+
+    .L_list li p {
+        padding-left: 40px;
+        font-family: '웰컴';
+        color: #8E8E8E;
+        font-size: 0.5em;
+    }
+
+    .L1 {
+        top: 10%;
+        right: 12%;
+    }
+
+    .L1>img {
+        width: 35% !important;
+    }
+
+    .L1::after {
+        display: none;
+    }
+
+    .L2 {
+        top: 25%;
+        right: 5%;
+        transform: translateY(50%);
+    }
+
+    .L2::after {
+        display: none;
+    }
+
+    .L3 {
+        bottom: 25%;
+        right: 5%;
+        transform: translateY(-50%);
+    }
+
+    .L3::after {
+        display: none;
+    }
+
+    .L4 {
+        bottom: 10%;
+        right: 9%;
+    }
+
+    .L4::after {
+        display: none;
+    }
+}
+
+/* -------------------------------------------- sec3 끝 ----------------------------------- */
+
+/* -------------------------------------------sec4 영역 ------------------------------------ */
+/* pc 버전 */
+@media (min-width:801px) {
+    .sec4 {
+        width: 100%;
+        height: 100vh;
+        background-image: url(./img/sec4\ 배경.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+    }
+    .sec4::after {
+        content: '';
+            width: 50%;
+            height: 100%;
+            background-color: #FF6464;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -1;
+    }
+    
+    .sec4_logo {
+        width: 100%;height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .sec4_1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 58vh;
+        overflow: hidden;
+    }
+    .circle {
+        position: absolute;
+        width: 800px;
+        height:800px;
+        /* border:1px solid green; */
+        position: absolute;
+        
+        bottom: -60%;
+        left: 50%;
+        transform: translateX(-50%) rotate(-120deg);
+        /* transform-origin: center; */
+        
+    }
+    
+    .p_list {
+        box-sizing: content-box;
+        /* border: 1px solid red; */
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        /* transform:; */
+        
+    }
+    
+    .p_list li {
+        /* border: 1px solid blue; */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transform-origin: bottom center;
+        width: 100px;
+        height: 50%;
+    
+        display: flex;
+        justify-content: center;
+    
+    }
+    .p_list>li>div {
+        height: 150px;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: .3s;
+    }
+    
+    .p_list>li>div img {
+        height: 100%;
+    }
+    
+    .p_list>li>div.on {
+        transform: scale(1.5); 
+    }
+    
+    .p_list .p_detail {
+        position: absolute;
+        top: 90%;
+        left: 30px;
+        width: 150px;
+        height: 0px;
+        overflow: hidden;
+        opacity: 0;
+        transition: .3s;
+    }
+    
+    .p_list>li:hover .p_detail {
+        height: 80px;
+        opacity: 1;
+    }
+    
+    
+    .p_list li:nth-of-type(5) {
+        transform:translateX(-50%) rotate(30deg);
+    }
+    .p_list li:nth-of-type(6) {
+        transform:translateX(-50%) rotate(60deg);
+    }
+    .p_list li:nth-of-type(7) {
+        transform:translateX(-50%) rotate(90deg);
+    }
+    .p_list li:nth-of-type(1) {
+        transform:translateX(-50%) rotate(120deg);
+    }
+    .p_list li:nth-of-type(2) {
+        transform:translateX(-50%) rotate(150deg);
+    }
+    .p_list li:nth-of-type(3) {
+        transform:translateX(-50%) rotate(180deg);
+    }
+    .p_list li:nth-of-type(4) {
+        transform:translateX(-50%) rotate(210deg);
+    }
+    
+    
+    
+    .sec4_2 {
+        width: 100%;
+        height: 15vh;
+        position: absolute;
+        bottom: 10%; left: 0;
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .sec4_2_inner {
+        height: 100%;
+    }
+    
+    .slide {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .sd {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 200px; height: 100px;
+        border: 5px solid #EEEEEE;
+        border-radius: 10px;
+        background-color: white;
+        font-family: '웰컴';
+    }
+    
+    
+    .s1 {
+        border: 5px solid yellow;
+    }
+    .sd p:nth-of-type(3) {
+        position: absolute;
+        width: 30px; height: 15px;
+        top: 0;
+        left: 0;
+        background-color: yellow;
+        font-size: 13px;
+        text-align: center;
+    }
+}
+/* 모바일버전 */
+@media (max-width:800px) {
+    .sec4 {
+        width: 100%;
+        height: 80vh;
+        position: relative;
+    }
+    .sec4::after {
+        content: '';
+            width: 50%;
+            height: 100%;
+            background-color: #FF6464;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -1;
+    }
+    
+    .sec4_logo {
+        width: 100%;height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .sec4_logo img {
+        width: 35%;
+    }
+    .sec4_1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 45vh;
+        overflow: hidden;
+    }
+    .circle {
+        position: absolute;
+        width: 500px;
+        height:500px;
+        /* border:1px solid green; */
+        
+        top: 18%;
+        left: 50%;
+        transform: translateX(-50%) rotate(-120deg);
+        /* transform-origin: center; */
+        
+    }
+    
+    .p_list {
+        box-sizing: content-box;
+        /* border: 1px solid red; */
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        /* transform:; */
+        
+    }
+    
+    .p_list li {
+        /* border: 1px solid blue; */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transform-origin: bottom center;
+        width: 100px;
+        height: 50%;
+    
+        display: flex;
+        justify-content: center;
+    
+    }
+    .p_list>li>div {
+        height: 150px;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: .3s;
+    }
+    
+    .p_list>li>div img {
+        height: 70%;
+    }
+    
+    .p_list>li>div.on {
+        transform: scale(1.5); 
+    }
+    
+    .p_list .p_detail {
+        position: absolute;
+        top: 90%;
+        left: 30px;
+        width: 150px;
+        height: 0px;
+        overflow: hidden;
+        opacity: 0;
+        transition: .3s;
+    }
+    
+    .p_list>li:hover .p_detail {
+        height: 80px;
+        opacity: 1;
+    }
+    
+    
+    .p_list li:nth-of-type(5) {
+        transform:translateX(-50%) rotate(30deg);
+    }
+    .p_list li:nth-of-type(6) {
+        transform:translateX(-50%) rotate(60deg);
+    }
+    .p_list li:nth-of-type(7) {
+        transform:translateX(-50%) rotate(90deg);
+    }
+    .p_list li:nth-of-type(1) {
+        transform:translateX(-50%) rotate(120deg);
+    }
+    .p_list li:nth-of-type(2) {
+        transform:translateX(-50%) rotate(150deg);
+    }
+    .p_list li:nth-of-type(3) {
+        transform:translateX(-50%) rotate(180deg);
+    }
+    .p_list li:nth-of-type(4) {
+        transform:translateX(-50%) rotate(210deg);
+    }
+    
+    
+    
+    .sec4_2 {
+        width: 100%;
+        height: 15vh;
+        position: absolute;
+        bottom: 5%; left: 0;
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .sec4_2_inner {
+        height: 100%; width: 100%;
+    }
+    
+    .slide {
+        display: flex;
+        height: 100%; width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .sd {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100px; height: 100px;
+        border: 5px solid #EEEEEE;
+        border-radius: 10px;
+        background-color: white;
+        font-family: '웰컴';
+    }
+    
+    
+    .s1 {
+        border: 5px solid yellow;
+    }
+    .sd p:nth-of-type(3) {
+        position: absolute;
+        width: 30px; height: 15px;
+        top: 0;
+        left: 0;
+        background-color: yellow;
+        font-size: 13px;
+        text-align: center;
+    }
+}
+/* ------------------------------------------------sec4 끝 ----------------------------- */
+
+
+/* footer 영역 */
+
+@media (min-width:801px) {
+    .foot {
+        width: 100%; height: 25vh;
+        background-image: url(./img/푸터\ 배경.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+    }
+    
+    .foot_inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .foot_logo {
+        width: 200px;
+        padding-top: 20px;
+    }
+    
+    .foot_logo img {
+        width: 100%;
+    }
+    
+    .foot_list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10px;
+    }
+    
+    .foot_list p {
+        padding: 5px 0;
+        color: white;
+        font-family: '웰컴';
+    }
+    
+    .sns {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+    }
+    .sns a {
+        position: absolute;
+        display: flex;
+    }
+    
+    .sns a:nth-of-type(1) {
+        top: 10px; left: 19%;
+    }
+    .sns a:nth-of-type(2) {
+        top: 50px; left: 30%;
+    }
+    .sns a:nth-of-type(3) {
+        top: 50px; right: 30%;
+    }
+    .sns a:nth-of-type(4) {
+        top: 10px; right: 19%;
+    }
+}
+
+@media (max-width:1150px) {
+    
+    .foot_inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .foot_logo {
+        width: 100px;
+        padding-top: 20px;
+    }
+    
+    .foot_logo img {
+        width: 100%;
+    }
+    
+    .foot_list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10px;
+    }
+    
+    .foot_list p {
+        padding: 5px 0;
+        color: white;
+        font-family: '웰컴';
+        font-size: 0.75em;
+    }
+    
+    .sns a {
+        width: 50px; height: 50px;
+    }
+    
+}
+
+@media (max-width:800px) {
+    .foot {
+        width: 100%; height: 25vh;
+        position: relative;
+        display: flex;
+    }
+    .foot::after {
+        content: '';
+        background-color: #91C483;
+        position: absolute;
+        width: 70%; height: 100%;
+        top: 0; left: 0;
+        z-index: -1;
+
+    }
+    .foot_inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 3;
+    }
+    
+    .foot_logo {
+        width: 200px;
+        padding-top: 20px;
+    }
+    
+    .foot_logo img {
+        width: 100%;
+    }
+    
+    .foot_list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10px;
+    }
+    
+    .foot_list p {
+        padding: 5px 0;
+        color: white;
+        font-family: '웰컴';
+        font-size: 10px;
+    }
+    
+    .sns {
+        width: 100%; height: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .sns a {
+        display: flex;
+        width: 30px; height: 30px;
+        padding: 5px 0;
+    }
+    .sns a img {
+        width: 100%;
+    }
+
+}
